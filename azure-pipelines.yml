@@ -1,4 +1,5 @@
 # Python Django
+
 # Test a Django project on multiple versions of Python.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
@@ -9,9 +10,9 @@ trigger:
 pool: MyComputerAgent
 
 steps:
-- task: UsePythonVersion@0
+- task: PowerShell@2
   inputs:
-    versionSpec: '3.9.13'
+    filePath: 'C:\Users\Testing\AppData\Local\Programs\Python\Python39\Scripts\'
     
 
 - task: PythonScript@0
@@ -22,7 +23,7 @@ steps:
       """Search all subdirectories for `manage.py`."""
       from glob import iglob
       from os import path
-      # Python >= 3.8
+      #Python >= 3.8
       manage_py = next(iglob(path.join('**', 'manage.py'), recursive=True), None)
       if not manage_py:
           raise SystemExit('Could not find a Django project')
