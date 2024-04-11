@@ -41,8 +41,3 @@ steps:
     python manage.py test --testrunner xmlrunner.extra.djangotestrunner.XMLTestRunner --no-input
   displayName: 'Run tests'
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFiles: "**/TEST-*.xml"
-    testRunTitle: 'Python 3.8'
-  condition: succeededOrFailed()
