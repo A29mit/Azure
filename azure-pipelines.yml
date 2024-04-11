@@ -11,7 +11,7 @@ pool: MyComputerAgent
 steps:
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '$(PYTHON_VERSION)'
+    versionSpec: '3.8'
     architecture: 'x64'
 
 - task: PythonScript@0
@@ -44,5 +44,5 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFiles: "**/TEST-*.xml"
-    testRunTitle: 'Python $(PYTHON_VERSION)'
+    testRunTitle: 'Python 3.8'
   condition: succeededOrFailed()
